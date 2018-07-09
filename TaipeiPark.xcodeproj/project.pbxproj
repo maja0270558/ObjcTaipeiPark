@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB21365620F3460C002F52FE /* ParkTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21365420F3460C002F52FE /* ParkTableViewCell.m */; };
+		EB21365720F3460C002F52FE /* ParkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB21365520F3460C002F52FE /* ParkTableViewCell.xib */; };
+		EB21365A20F35085002F52FE /* ParkClient.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21365920F35085002F52FE /* ParkClient.m */; };
+		EB21365D20F353D8002F52FE /* RequestProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21365C20F353D8002F52FE /* RequestProvider.m */; };
+		EB21366020F36534002F52FE /* ParkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB21365F20F36534002F52FE /* ParkModel.m */; };
 		EBB5873E20F0996B00D2E4FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB5873D20F0996B00D2E4FB /* AppDelegate.m */; };
 		EBB5874120F0996B00D2E4FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBB5874020F0996B00D2E4FB /* ViewController.m */; };
 		EBB5874420F0996B00D2E4FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBB5874220F0996B00D2E4FB /* Main.storyboard */; };
@@ -16,6 +21,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB21365320F3460C002F52FE /* ParkTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParkTableViewCell.h; sourceTree = "<group>"; };
+		EB21365420F3460C002F52FE /* ParkTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkTableViewCell.m; sourceTree = "<group>"; };
+		EB21365520F3460C002F52FE /* ParkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParkTableViewCell.xib; sourceTree = "<group>"; };
+		EB21365820F35085002F52FE /* ParkClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParkClient.h; sourceTree = "<group>"; };
+		EB21365920F35085002F52FE /* ParkClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkClient.m; sourceTree = "<group>"; };
+		EB21365B20F353D8002F52FE /* RequestProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestProvider.h; sourceTree = "<group>"; };
+		EB21365C20F353D8002F52FE /* RequestProvider.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestProvider.m; sourceTree = "<group>"; };
+		EB21365E20F36534002F52FE /* ParkModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParkModel.h; sourceTree = "<group>"; };
+		EB21365F20F36534002F52FE /* ParkModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ParkModel.m; sourceTree = "<group>"; };
 		EBB5873920F0996B00D2E4FB /* TaipeiPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaipeiPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB5873C20F0996B00D2E4FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EBB5873D20F0996B00D2E4FB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,10 +72,11 @@
 		EBB5873B20F0996B00D2E4FB /* TaipeiPark */ = {
 			isa = PBXGroup;
 			children = (
+				EBB5875420F0AFDE00D2E4FB /* Controller */,
+				EBB5875320F0AFDA00D2E4FB /* View */,
+				EBB5875220F0AFD300D2E4FB /* Model */,
 				EBB5873C20F0996B00D2E4FB /* AppDelegate.h */,
 				EBB5873D20F0996B00D2E4FB /* AppDelegate.m */,
-				EBB5873F20F0996B00D2E4FB /* ViewController.h */,
-				EBB5874020F0996B00D2E4FB /* ViewController.m */,
 				EBB5874220F0996B00D2E4FB /* Main.storyboard */,
 				EBB5874520F0996D00D2E4FB /* Assets.xcassets */,
 				EBB5874720F0996D00D2E4FB /* LaunchScreen.storyboard */,
@@ -69,6 +84,38 @@
 				EBB5874B20F0996E00D2E4FB /* main.m */,
 			);
 			path = TaipeiPark;
+			sourceTree = "<group>";
+		};
+		EBB5875220F0AFD300D2E4FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EB21365B20F353D8002F52FE /* RequestProvider.h */,
+				EB21365E20F36534002F52FE /* ParkModel.h */,
+				EB21365F20F36534002F52FE /* ParkModel.m */,
+				EB21365C20F353D8002F52FE /* RequestProvider.m */,
+				EB21365820F35085002F52FE /* ParkClient.h */,
+				EB21365920F35085002F52FE /* ParkClient.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EBB5875320F0AFDA00D2E4FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EB21365320F3460C002F52FE /* ParkTableViewCell.h */,
+				EB21365420F3460C002F52FE /* ParkTableViewCell.m */,
+				EB21365520F3460C002F52FE /* ParkTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EBB5875420F0AFDE00D2E4FB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EBB5873F20F0996B00D2E4FB /* ViewController.h */,
+				EBB5874020F0996B00D2E4FB /* ViewController.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +178,7 @@
 				EBB5874920F0996D00D2E4FB /* LaunchScreen.storyboard in Resources */,
 				EBB5874620F0996D00D2E4FB /* Assets.xcassets in Resources */,
 				EBB5874420F0996B00D2E4FB /* Main.storyboard in Resources */,
+				EB21365720F3460C002F52FE /* ParkTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,9 +189,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB21366020F36534002F52FE /* ParkModel.m in Sources */,
 				EBB5874120F0996B00D2E4FB /* ViewController.m in Sources */,
+				EB21365D20F353D8002F52FE /* RequestProvider.m in Sources */,
 				EBB5874C20F0996E00D2E4FB /* main.m in Sources */,
+				EB21365A20F35085002F52FE /* ParkClient.m in Sources */,
 				EBB5873E20F0996B00D2E4FB /* AppDelegate.m in Sources */,
+				EB21365620F3460C002F52FE /* ParkTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
