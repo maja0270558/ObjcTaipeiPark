@@ -90,9 +90,9 @@
 			isa = PBXGroup;
 			children = (
 				EB21365B20F353D8002F52FE /* RequestProvider.h */,
+				EB21365C20F353D8002F52FE /* RequestProvider.m */,
 				EB21365E20F36534002F52FE /* ParkModel.h */,
 				EB21365F20F36534002F52FE /* ParkModel.m */,
-				EB21365C20F353D8002F52FE /* RequestProvider.m */,
 				EB21365820F35085002F52FE /* ParkClient.h */,
 				EB21365920F35085002F52FE /* ParkClient.m */,
 			);

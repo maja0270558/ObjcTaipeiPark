@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface ParkClient : NSObject
-+(void) requestWith:(NSURLRequest*)request completion:(void(^)(NSData*))callback;
+@interface ParkClient : NSObject {
+  NSMutableDictionary<NSString *,NSURLSessionTask *> *taskDic;
+  NSCache<NSString *,UIImage *> *imageCatch;
+}
+
+-(instancetype) init;
+-(void) requestWith:(NSURLRequest*)request completion:(void(^)(NSData*))callback;
+-(void) requestImageWith:(NSURLRequest *)request completion:(void (^)(UIImage *))callback;
 @end

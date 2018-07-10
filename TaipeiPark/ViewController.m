@@ -14,6 +14,7 @@
 @interface ViewController () <UITableViewDelegate,UITableViewDataSource> {
   __weak IBOutlet UITableView *tableView;
   RequestProvider *requestProvider;
+  ParkClient *client;
 }
 -(void) setupTableView;
 -(void) getParkData;
@@ -41,23 +42,26 @@
   tableView.delegate = self;
   tableView.dataSource = self;
   data = [[NSMutableArray alloc] init];
+  client = [[ParkClient alloc] init];
+  
 }
 
 - (void)getParkData
 {
   NSURLRequest *request = [requestProvider getRequest:[requestProvider getParkURLString] withMethod:GET];
-  [ParkClient requestWith:request completion:^(NSData *jsonData) {
+  [client requestWith:request completion:^(NSData *jsonData) {
     self->requestProvider.offset += 30;
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
     NSDictionary *result = dict[@"result"];
     NSArray *results = result[@"results"];
-    for (NSDictionary *item in [results objectEnumerator]) {
-      ParkModel *model = [[ParkModel alloc] initWithDic:item];
- 
-      [self->data addObject:model];
+    if (results.count > 0) {
+      for (NSDictionary *item in [results objectEnumerator]) {
+        ParkModel *model = [[ParkModel alloc] initWithDic:item];
+        
+        [self->data addObject:model];
+      }
+      [self->tableView reloadData];
     }
-    printf("data count %d", data.count);
-    [self->tableView reloadData];
   }];
 }
 
@@ -70,10 +74,29 @@
 {
   ParkTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellIdentifier forIndexPath:indexPath];
   ParkModel *modelData = data[indexPath.row];
+  cell.tag = indexPath.row;
   cell.title.text = modelData.variety;
   cell.intro.text = modelData.note;
-  
+  NSURLRequest *request = [requestProvider getRequest:modelData.image withMethod:GET];
+  [client requestImageWith:request completion:^(UIImage *data) {
+    if ([tableView cellForRowAtIndexPath:indexPath])/*(cell.tag == indexPath.row)*/ {
+      cell.parkImage.image = data;
+    }
+  }];
   return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  if (indexPath.row+1 == data.count) {
+    [self getParkData];
+  }
+}
+
+- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  ParkTableViewCell *parkCell = cell;
+  parkCell.parkImage.image = nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
